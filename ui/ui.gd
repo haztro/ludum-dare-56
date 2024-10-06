@@ -17,6 +17,12 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = not get_tree().paused
+		
+	if Input.is_action_just_pressed("fullscreen"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	#elif Input.is_action_just_pressed("esc") and get_tree().paused:
 		#get_tree().paused = false
 	
