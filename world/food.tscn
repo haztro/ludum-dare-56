@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl7jya72bbla"]
+
+[ext_resource type="PackedScene" uid="uid://3cb5q4rpv65d" path="res://world/resource.tscn" id="1_41ge8"]
+[ext_resource type="Script" path="res://world/food.gd" id="2_7bkob"]
+[ext_resource type="Texture2D" uid="uid://drd8fa5nseoys" path="res://assets/items.png" id="3_dvr32"]
+[ext_resource type="AudioStream" uid="uid://bmcutqlcu17xx" path="res://assets/audio/harvest_wood.ogg" id="4_6quhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ar4nb"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vfdv"]
+resource_local_to_scene = true
+atlas = ExtResource("3_dvr32")
+region = Rect2(0, 16, 16, 16)
+
+[node name="Food" instance=ExtResource("1_41ge8")]
+script = ExtResource("2_7bkob")
+type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_ar4nb")
+
+[node name="CPUParticles2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_5vfdv")
+
+[node name="AudioStreamPlayer" parent="." index="3" groups=["food"]]
+stream = ExtResource("4_6quhr")

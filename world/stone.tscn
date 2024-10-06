@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdyuoeglrryus"]
+
+[ext_resource type="PackedScene" uid="uid://3cb5q4rpv65d" path="res://world/resource.tscn" id="1_w6eqq"]
+[ext_resource type="Script" path="res://world/stone.gd" id="2_ta5mn"]
+[ext_resource type="Texture2D" uid="uid://drd8fa5nseoys" path="res://assets/items.png" id="3_t0vla"]
+[ext_resource type="AudioStream" uid="uid://dfwx1qaliwfk6" path="res://assets/audio/harvest_stone.ogg" id="4_v2fed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0lc5"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlw8a"]
+resource_local_to_scene = true
+atlas = ExtResource("3_t0vla")
+region = Rect2(0, 48, 16, 16)
+
+[node name="Stone" instance=ExtResource("1_w6eqq")]
+script = ExtResource("2_ta5mn")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h0lc5")
+
+[node name="CPUParticles2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_vlw8a")
+
+[node name="AudioStreamPlayer" parent="." index="3" groups=["stone"]]
+stream = ExtResource("4_v2fed")

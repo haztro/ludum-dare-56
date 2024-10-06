@@ -1,0 +1,169 @@
+[gd_scene load_steps=17 format=3 uid="uid://x0jvyg5y51mb"]
+
+[ext_resource type="FontFile" uid="uid://ehb7iwdwwarl" path="res://assets/font/TTF/dogica.ttf" id="1_akads"]
+[ext_resource type="Texture2D" uid="uid://bllh8cc0w31h7" path="res://assets/prompt_box.png" id="1_bwk3x"]
+[ext_resource type="Script" path="res://ui/summon_menu.gd" id="1_cj4lo"]
+[ext_resource type="PackedScene" uid="uid://ddfhhmw43u33a" path="res://ui/res_icon.tscn" id="2_a6ysg"]
+[ext_resource type="Texture2D" uid="uid://b4lqsscgvywpb" path="res://assets/creature_icons.png" id="2_m3pfo"]
+[ext_resource type="Texture2D" uid="uid://meplbt1exjah" path="res://assets/icons.png" id="3_uq6bw"]
+[ext_resource type="AudioStream" uid="uid://cnka644r2j67x" path="res://assets/audio/fail.ogg" id="7_gyaea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pss2b"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("1_bwk3x")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ainsw"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n46na"]
+atlas = ExtResource("2_m3pfo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t88pk"]
+resource_local_to_scene = true
+atlas = ExtResource("3_uq6bw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qy3"]
+resource_local_to_scene = true
+atlas = ExtResource("3_uq6bw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw2jo"]
+atlas = ExtResource("2_m3pfo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak365"]
+resource_local_to_scene = true
+atlas = ExtResource("3_uq6bw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cktt"]
+resource_local_to_scene = true
+atlas = ExtResource("3_uq6bw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0buce"]
+resource_local_to_scene = true
+atlas = ExtResource("3_uq6bw")
+region = Rect2(384, 0, 128, 128)
+
+[node name="SummonMenu" type="MarginContainer"]
+process_mode = 3
+offset_right = 404.0
+offset_bottom = 532.0
+script = ExtResource("1_cj4lo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_akads")
+theme_override_font_sizes/font_size = 32
+text = "gatherer"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pss2b")
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ainsw")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_n46na")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="Control2" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_a6ysg")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_t88pk")
+
+[node name="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_a6ysg")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p1qy3")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_akads")
+theme_override_font_sizes/font_size = 32
+text = "warrior"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer2"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pss2b")
+
+[node name="Panel2" type="Panel" parent="HBoxContainer/VBoxContainer2/PanelContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ainsw")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_lw2jo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" parent="HBoxContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("2_a6ysg")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ak365")
+
+[node name="Control3" parent="HBoxContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("2_a6ysg")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2cktt")
+
+[node name="Control2" parent="HBoxContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("2_a6ysg")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0buce")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gyaea")
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer2" to="." method="_on_v_box_container_2_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer2" to="." method="_on_v_box_container_2_mouse_exited"]

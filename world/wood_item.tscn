@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvksf1f0pd4p5"]
+
+[ext_resource type="PackedScene" uid="uid://dkugalph4ad04" path="res://world/item.tscn" id="1_nkfxp"]
+
+[node name="WoodItem" instance=ExtResource("1_nkfxp")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(0, 32, 16, 16)

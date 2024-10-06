@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdqfafvb7evbp"]
+
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_qygyq"]
+[ext_resource type="PackedScene" uid="uid://ddfhhmw43u33a" path="res://ui/res_icon.tscn" id="2_0kjms"]
+[ext_resource type="Texture2D" uid="uid://meplbt1exjah" path="res://assets/icons.png" id="3_7cn4m"]
+[ext_resource type="PackedScene" uid="uid://dqwxbts6584cm" path="res://ui/prompt_box.tscn" id="4_xfr6v"]
+[ext_resource type="Script" path="res://ui/prompt_box.gd" id="5_wip18"]
+[ext_resource type="PackedScene" uid="uid://x0jvyg5y51mb" path="res://ui/summon_menu.tscn" id="6_vinla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8163"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7cn4m")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10ts4"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7cn4m")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boasf"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7cn4m")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v1e8"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7cn4m")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3qwn"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7cn4m")
+region = Rect2(512, 0, 128, 128)
+
+[node name="ui" type="MarginContainer" groups=["ui"]]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_qygyq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="creatures_icon" parent="HBoxContainer" instance=ExtResource("2_0kjms")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_m8163")
+type = 3
+
+[node name="food_icon" parent="HBoxContainer" instance=ExtResource("2_0kjms")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_10ts4")
+type = 2
+
+[node name="wood_icon" parent="HBoxContainer" instance=ExtResource("2_0kjms")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_boasf")
+
+[node name="stone_icon" parent="HBoxContainer" instance=ExtResource("2_0kjms")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6v1e8")
+type = 1
+
+[node name="gold_icon" parent="HBoxContainer" instance=ExtResource("2_0kjms")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f3qwn")
+type = 4
+
+[node name="PromptBox" parent="." instance=ExtResource("4_xfr6v")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("5_wip18")
+
+[node name="SummonMenu" parent="." instance=ExtResource("6_vinla")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

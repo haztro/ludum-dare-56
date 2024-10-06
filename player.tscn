@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlh3rwvnees8s"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_3joab"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_3joab")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)
+limit_left = -800
+limit_top = -400
+limit_right = 800
+limit_bottom = 400

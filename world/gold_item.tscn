@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbnsxjmxp7fvr"]
+
+[ext_resource type="PackedScene" uid="uid://dkugalph4ad04" path="res://world/item.tscn" id="1_5yjv3"]
+
+[node name="GoldItem" instance=ExtResource("1_5yjv3")]

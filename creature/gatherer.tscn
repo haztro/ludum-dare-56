@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6a67l6gaq3ui"]
+
+[ext_resource type="PackedScene" uid="uid://bct7xb5u82g5c" path="res://creature/follower.tscn" id="1_sa665"]
+[ext_resource type="Script" path="res://creature/gatherer.gd" id="2_tvyf5"]
+
+[node name="Gatherer" groups=["gatherer"] instance=ExtResource("1_sa665")]
+script = ExtResource("2_tvyf5")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk472satdyv0m"]
+
+[ext_resource type="PackedScene" uid="uid://3cb5q4rpv65d" path="res://world/resource.tscn" id="1_nkaet"]
+[ext_resource type="Script" path="res://world/tree.gd" id="2_p1nob"]
+[ext_resource type="Texture2D" uid="uid://drd8fa5nseoys" path="res://assets/items.png" id="3_dfrce"]
+[ext_resource type="AudioStream" uid="uid://bmcutqlcu17xx" path="res://assets/audio/harvest_wood.ogg" id="4_jtsyx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8udew"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45sbd"]
+resource_local_to_scene = true
+atlas = ExtResource("3_dfrce")
+region = Rect2(0, 32, 16, 16)
+
+[node name="Tree" groups=["tree"] instance=ExtResource("1_nkaet")]
+script = ExtResource("2_p1nob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_8udew")
+
+[node name="CPUParticles2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_45sbd")
+
+[node name="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("4_jtsyx")

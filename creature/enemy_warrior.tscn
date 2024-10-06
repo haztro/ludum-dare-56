@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnwm8q0b38otc"]
+
+[ext_resource type="PackedScene" uid="uid://soplyu7xty1w" path="res://creature/enemy_creature.tscn" id="1_l0bbn"]
+[ext_resource type="Script" path="res://creature/enemy_warrior.gd" id="2_hgoen"]
+
+[node name="EnemyWarrior" instance=ExtResource("1_l0bbn")]
+script = ExtResource("2_hgoen")
+
+[node name="AttackTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="." index="7"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

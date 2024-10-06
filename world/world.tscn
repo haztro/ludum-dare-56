@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://jvf7ih1sn52j"]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1_o1p2h"]
+[ext_resource type="PackedScene" uid="uid://dlh3rwvnees8s" path="res://player.tscn" id="2_ft6pq"]
+[ext_resource type="PackedScene" uid="uid://c4sy366o4gmjf" path="res://world/monument.tscn" id="3_cmmp3"]
+[ext_resource type="AudioStream" uid="uid://lryfrcsv0qsk" path="res://assets/audio/spawn.ogg" id="4_d7553"]
+
+[node name="world" type="Node2D" groups=["world"]]
+y_sort_enabled = true
+script = ExtResource("1_o1p2h")
+
+[node name="Player" parent="." instance=ExtResource("2_ft6pq")]
+position = Vector2(22, 0)
+
+[node name="Monument" parent="." instance=ExtResource("3_cmmp3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d7553")

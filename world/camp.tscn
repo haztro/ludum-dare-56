@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtrhumak4qr7m"]
+
+[ext_resource type="PackedScene" uid="uid://bsl2n8ghw4ntp" path="res://world/building.tscn" id="1_tykh6"]
+[ext_resource type="Script" path="res://world/camp.gd" id="2_mfgtq"]
+[ext_resource type="PackedScene" uid="uid://ntu2y6838qth" path="res://world/item_particles.tscn" id="3_yqr4e"]
+[ext_resource type="Texture2D" uid="uid://drd8fa5nseoys" path="res://assets/items.png" id="4_tvacn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmhkq"]
+resource_local_to_scene = true
+atlas = ExtResource("4_tvacn")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Camp" instance=ExtResource("1_tykh6")]
+script = ExtResource("2_mfgtq")
+
+[node name="CPUParticles2D" parent="." index="3" instance=ExtResource("3_yqr4e")]
+amount = 4
+texture = SubResource("AtlasTexture_tmhkq")

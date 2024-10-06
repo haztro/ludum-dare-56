@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bct7xb5u82g5c"]
+
+[ext_resource type="PackedScene" uid="uid://d1waic0ogxsc4" path="res://creature/creature.tscn" id="1_fufih"]
+[ext_resource type="Script" path="res://creature/follower.gd" id="2_ere8k"]
+
+[node name="Follower" groups=["follower"] instance=ExtResource("1_fufih")]
+script = ExtResource("2_ere8k")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

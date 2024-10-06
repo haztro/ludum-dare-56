@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://soplyu7xty1w"]
+
+[ext_resource type="PackedScene" uid="uid://d1waic0ogxsc4" path="res://creature/creature.tscn" id="1_7raf3"]
+[ext_resource type="Script" path="res://creature/enemy_creature.gd" id="2_tljf1"]
+[ext_resource type="AudioStream" uid="uid://cssdbn82i3xrc" path="res://assets/audio/camp_complete.ogg" id="3_wn1ie"]
+
+[node name="EnemyCreature" groups=["enemy"] instance=ExtResource("1_7raf3")]
+script = ExtResource("2_tljf1")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("3_wn1ie")
