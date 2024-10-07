@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	if _direction != Vector2.ZERO and not _attacking and _health > 0:
 		$AnimationPlayer.play("w_walk")
-	if _attacking:
+	if _attacking and _health > 0:
 		$AnimationPlayer.play("w_attack")
 		if $AttackCooldown.is_stopped() and $AttackTimer.is_stopped():
 			$AttackTimer.start()

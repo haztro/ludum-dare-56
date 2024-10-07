@@ -36,10 +36,11 @@ func _process(delta: float) -> void:
 
 	
 func die() -> void:
-	if len(camp.members) == 1:
+	if len(camp.members) <= 1: #.members.is_empty():
 		camp.get_node("CPUParticles2D").emitting = true
 		Game.add_resource(Game.RESOURCE_TYPE.GOLD, camp.reward)
 		$AudioStreamPlayer3.play()
+	camp.members.erase(self)
 	$AnimationPlayer.play("e_die")
 	await $AnimationPlayer.animation_finished
 
@@ -49,7 +50,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if _obj.is_in_group("follower"):
 		_enemy_target = _obj
 		_attacking = true
-		$AttackTimer.start()
+		if $AttackTimer.is_stopped():
+			$AttackTimer.start()
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -59,7 +61,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 		
 func _on_attack_timer_timeout() -> void:
-	if _enemy_target != null and _health > 0 and position.distance_to(_enemy_target.position) < 20:
+	if _enemy_target != null and _health > 0 and position.distance_to(_enemy_target.position) < 19:
 		_enemy_target.damage(50.0)
 		$AttackCooldown.start()
 

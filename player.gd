@@ -57,10 +57,17 @@ func remove_creature(creature: Creature):
 func _process(delta: float) -> void:
 	_get_movement_direction()
 	_get_aim_direction()
-	print(position)
+	#print(position)
 	if _direction != Vector2.ZERO:
 		position += _direction * _speed * delta 
-
+		var test_pos = position 
+		var half_cam = (get_viewport_rect().size/$Camera2D.zoom)/2
+		if test_pos.x > 800-half_cam.x or test_pos.x < -800 + half_cam.x: 
+			position.x -= _direction.x * _speed * delta 
+		if test_pos.y > 400 - half_cam.y or test_pos.y < -400 + half_cam.y:
+			position.y -= _direction.y * _speed * delta
+			
+			
 
 func _get_movement_direction() -> void:
 	_direction = Vector2(0, 0)
